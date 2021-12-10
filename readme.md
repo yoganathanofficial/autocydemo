@@ -52,4 +52,7 @@ Also I installed “cypress-cucumber-preprocessor” by referring https://www.np
 	- Note: In this method, screenshot on failure (This would be enabled by adding some configuration) and video recording (This cannot be enabled) will not happen. Also, the corresponding browser should installed already in the system.
 2. Executing the command “npx cypress run” in cypress project root directory path via cmd.exe. ie. "C:\Users\hp\yoga\autocydemo> npx cypress run". 
     - In this mode, tests would be executed in headless mode and screenshot on failure and video recording are enabled automatically.
-- **Note:** My personal laptop is very old and processer and RAM are not capable of recording the video of the execution. So, I could not able to share/upload the test execution video along with github source code. I would able to show the execution with video conference call when required. 
+- **Note:** 
+    - My personal laptop is very old and CPU processor and RAM are not capable of recording the video of the execution in cypress run mode. So, I could not able to share/upload the completed test execution video. But still few screenshots and incompleted video has been made available already in github on following paths  -https://github.com/yoganathanofficial/autocydemo/tree/master/cypress/screenshots/cucumber-bdd/amazon.featurehttps://github.com/yoganathanofficial/autocydemo/tree/master/cypress/videos/cucumber-bdd
+    - Also I shared the screenshots for cpu process exited unexpectedly on cypress run mode execution issue in this path https://github.com/yoganathanofficial/autocydemo/tree/master/cypress/downloads/misc.
+    - ***I would be glad to show my test execution in my laptop directly by cypress Test Runner mode any time through video conference.***
