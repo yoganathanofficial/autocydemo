@@ -14,22 +14,18 @@ const egift_from_qty = '#gc-order-form-quantity';
 const egift_delivery_date_box = '#gc-order-form-date-val';
 const egift_delivery_date = '.a-cal-d-1640889000000 > .a-declarative';
 const add_cart_button = '#gc-buy-box-atc';
-const shorter_time_out = '5000';
-const short_time_out = '10000';
-const medium_time_out = '20000';
-const long_time_out = '30000';
-const longer_time_out = '40000';
+
 
 Given(`I Select Animated eGift card category in amazon website`, () => {
   cy.get(giftcards_tab).click();
-  cy.get(giftcards_options , { timeout: short_time_out }).should('be.visible');
+  cy.get(giftcards_options , { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
   cy.get(giftcards_options).click();
 });
 
 When(`I select random Animated eGift card`, () => {
-  cy.get(animated_button , { timeout: short_time_out }).should('be.visible');
+  cy.get(animated_button , { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
   cy.get(animated_button).click({force: true});
-  cy.get(animated_giftcard , { timeout: short_time_out }).should('be.visible');
+  cy.get(animated_giftcard , { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
 });
 
 //Returns a random number between 1 and 100
@@ -40,13 +36,13 @@ function getRandomBetween(min, max) {
 const random_num = (getRandomBetween(1,100));
 
 And(`I enter random amount from $1 to $100`, () => {
-  cy.get(egift_amount , { timeout: short_time_out }).should('be.visible');
+  cy.get(egift_amount , { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
   cy.get(egift_amount).clear();
   cy.get(egift_amount).type(random_num);
 });
 
 And(`I enter {string} and {string} and {string} and {string} details`, (to, from, msg, qty) => {
-  cy.get(egift_email_button, { timeout: short_time_out }).should('be.visible');
+  cy.get(egift_email_button, { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
   cy.get(egift_email_button,).click();
   cy.get(egift_to_email,).click();
   cy.get(egift_to_email).clear();
@@ -69,12 +65,11 @@ And(`I Add produt to the cart`, () => {
 });
 
 Then('Verify that Add to cart API request is successfull', () => {
-  cy.visit('https://amazon.com');
   cy.intercept({
     path : '/1/events/com.amazon.csm.csa.prod'
   }). as ('addCartPost')
 
-  cy.wait('@addCartPost', {timeout: medium_time_out}).its('response.statusCode').should((status_code) => {
+  cy.wait('@addCartPost', {timeout: (Cypress.env('medium_time_out'))}).its('response.statusCode').should((status_code) => {
     console.log(status_code)
     if (status_code !== 200) {
       throw Error('Add to Cart is faied in backend API service.')

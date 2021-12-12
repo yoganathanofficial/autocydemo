@@ -18,7 +18,7 @@ Also I installed “cypress-cucumber-preprocessor” by referring https://www.np
 - Created “product.js” file under “amazon” folder and developed cypress code for product related steps for above scenario.
 - Created “before_and_after_steps.js” file under “amazon” folder to have the test setup test teardown related steps. For now, I kept the opening amazon website in the test setup as all scenarios are required to open amazon website to perform the further verification.
 - For now, I assigned scalar variable for all web elements css paths for easy maintenance.
-- Also, I assigned scalar variables for timeout values and applied dynamic wait for most of the places to have stable execution if minor slowness in the application side. For now, I kept these time out based variables in each page object step definition files. I would make it as a global variable in upcoming pull request to avoid duplicates.
+- Also, I assigned scalar variables for timeout values and applied dynamic wait for most of the places to have stable execution if minor slowness in the application side. I kept these time out based variables in cypress.env.json file to access it as a global variable in all the places.
 
 ***Assignment: 2***
 - Created another scenario in “amazon.feature” file with Gherkin language as below, Note: This scenario would be executed 2 times with 2 different set of data as it’s using Scenario Outline + Examples.
