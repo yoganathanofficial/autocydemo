@@ -1,19 +1,19 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 
 // Varibles
-const giftcards_tab = '[href="/gift-cards/b/?ie=UTF8&node=2238192011&ref_=nav_cs_gc_4fb606b1a14b44e4823e00c03fc71f47"]';
-const giftcards_options = ':nth-child(3) > :nth-child(1) > .bxc-grid__content > .bxc-grid__text > :nth-child(3) > a';
-const animated_button = '#gc-customization-type-button-Animated';
-const animated_giftcard = '#gc-mini-picker-design-swatch-image-5';
-const egift_amount = '#gc-order-form-custom-amount';
-const egift_email_button = '#gc-delivery-mechanism-button-Email-announce';
-const egift_to_email = '#gc-order-form-recipients';
-const egift_sender = '#gc-order-form-senderName';
-const egift_from_msg = '#gc-order-form-message';
-const egift_from_qty = '#gc-order-form-quantity';
-const egift_delivery_date_box = '#gc-order-form-date-val';
-const egift_delivery_date = '.a-cal-d-1640889000000 > .a-declarative';
-const add_cart_button = '#gc-buy-box-atc';
+const giftcards_tab       = '[href="/gift-cards/b/?ie=UTF8&node=2238192011&ref_=nav_cs_gc_4fb606b1a14b44e4823e00c03fc71f47"]';
+const giftcards_options   = ':nth-child(3) > :nth-child(1) > .bxc-grid__content > .bxc-grid__text > :nth-child(3) > a';
+const animated_button     = '#gc-customization-type-button-Animated';
+const animated_giftcard   = '#gc-mini-picker-design-swatch-image-5';
+const egift_amount        = '#gc-order-form-custom-amount';
+const egift_email_button  = '#gc-delivery-mechanism-button-Email-announce';
+const egift_to_email      = '#gc-order-form-recipients';
+const egift_sender        = '#gc-order-form-senderName';
+const egift_from_msg      = '#gc-order-form-message';
+const egift_from_qty      = '#gc-order-form-quantity';
+const egift_delivery_date_box       = '#gc-order-form-date-val';
+const egift_available_delivery_date = 'a[aria-disabled="false"]';
+const add_cart_button               = '#gc-buy-box-atc';
 
 
 Given(`I Select Animated eGift card category in amazon website`, () => {
@@ -57,10 +57,12 @@ And(`I enter {string} and {string} and {string} and {string} details`, (to, from
 
 And(`I select the second available delivery date from the calendar`, () => {
   cy.get(egift_delivery_date_box).click();
-  cy.get(egift_delivery_date).click();
+  cy.get(egift_available_delivery_date).eq(1).click()
+  cy.screenshot();
 });
 
 And(`I Add produt to the cart`, () => {
+  cy.get(add_cart_button, { timeout: (Cypress.env('short_time_out')) }).should('be.visible');
   cy.get(add_cart_button).click();
 });
 

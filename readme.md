@@ -41,7 +41,7 @@ Also I installed “cypress-cucumber-preprocessor” by referring https://www.np
 
 
 - Created “eGiftCard.js” file under “amazon” folder and developed cypress code for eGiftCard related steps for above scenario.
-- For now, I implemented the delivery date selection with specific date. I would implement the second available delivery date section in upcoming pull requests as per requirement.
+- I implemented the 2nd available delivery date selection by using object index.
 - Used cypress “intercept” and verified the back end API service response status code while adding eGiftCard to cart.
 - I would implement the verification for correct card designs are available for standard & animated by comparing json baseline using “intercept” in upcoming pull requests as per requirement.
 

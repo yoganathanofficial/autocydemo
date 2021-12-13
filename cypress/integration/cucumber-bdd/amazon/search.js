@@ -1,10 +1,10 @@
 import { Given, When, And, Then } from "cypress-cucumber-preprocessor/steps";
 
 // Varibles
-const search_box = "#twotabsearchtextbox";
-const search_button = "#nav-search-submit-button";
-const sort_dropdown = ".a-dropdown-prompt";
-const sort_hightolowprice = "#s-result-sort-select_2";
+const search_box            = "#twotabsearchtextbox";
+const search_button         = "#nav-search-submit-button";
+const sort_dropdown         = ".a-dropdown-prompt";
+const sort_hightolowprice   = "#s-result-sort-select_2";
 const second_sorted_product = '[data-asin="B083K51SGJ"] > :nth-child(1) > .celwidget > .s-include-content-margin > :nth-child(1) > :nth-child(2) > .sg-col-8-of-16 > :nth-child(1) > :nth-child(1) > :nth-child(1) > .a-size-mini > .a-link-normal > .a-size-medium';
 
 
